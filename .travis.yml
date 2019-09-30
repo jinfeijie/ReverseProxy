@@ -1,6 +1,4 @@
 language: trusty
-env:
- - DOCKER_COMPOSE_VERSION=1.24.1
 services:
  - docker
 install:
