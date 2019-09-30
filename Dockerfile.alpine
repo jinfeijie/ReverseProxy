@@ -1,0 +1,14 @@
+FROM alpine:latest
+MAINTAINER mrjin<me@jinfeijie.cn>
+
+ENV PORT 	1080
+ENV SCHEME 	https
+ENV DOMAIN	https://www.google.com/
+WORKDIR /
+
+COPY proxy_386 /
+RUN apk update && apk add ca-certificates && chmod +x /proxy_386
+
+EXPOSE $PORT
+
+CMD ./proxy_386 -p $PORT -scheme $SCHEME -d $DOMAIN

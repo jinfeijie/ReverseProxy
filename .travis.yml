@@ -1,0 +1,11 @@
+language: trusty
+services:
+ - docker
+install:
+ - docker build -f Dockerfile.alpine -t mrjin/proxy:alpine .
+ - docker run -d -p 10001:10001 -e PORT=10001 --name proxy mrjin/proxy:alpine
+ - docker ps -a | grep proxy
+script:
+ - curl 127.0.0.1:10001
+ - sleep 2
+ - curl 127.0.0.1:10001
