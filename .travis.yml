@@ -9,6 +9,7 @@ script:
  - curl 127.0.0.1:10001
  - sleep 2
  - curl 127.0.0.1:10001
- - docker tag mrjin/proxy:alpine docker.pkg.github.com/${gh-user}/reverseproxy/proxy:alpine
- - docker login docker.pkg.github.com --username ${gh-user} -p ${gh-token}
- - docker push docker.pkg.github.com/${gh-user}/reverseproxy/proxy:alpine
+ - docker tag mrjin/proxy:alpine docker.pkg.github.com/jinfeijie/reverseproxy/proxy:alpine
+ - docker images
+ - docker login docker.pkg.github.com --username jinfeijie -p ${gh-token}
+ - docker push docker.pkg.github.com/jinfeijie/reverseproxy/proxy:alpine
